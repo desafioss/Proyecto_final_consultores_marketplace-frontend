@@ -1,0 +1,150 @@
+/* src/styles.css */
+
+/* Reset y tipografía */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Fondo global con la imagen */
+body {
+  background: url("/fondo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Navbar calipso */
+.navbar-calipso {
+  background-color: #00b8d9;
+  min-height: 70px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  
+}
+.navbar-calipso .navbar-brand span,
+.navbar-calipso .nav-link {
+  font-size: 1.5rem;  /*  ajustar este valor */
+}
+/* Estilos para el contenido del Blog */
+.blog-content {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo  */
+  color: #fff;                         /* Texto en blanco para buen contraste */
+  padding: 20px;
+  border-radius: 8px;
+}
+/* Estilo específico para el título del Blog */
+.blog-title {
+  font-size: 2rem;       /* Tamaño de fuente grande */
+  color: #fff;           /* Color blanco para buen contraste */
+  text-align: center;    /* Centrar el título */
+  margin-bottom: 20px;   /* Espacio debajo del título */
+  border-bottom: 1px solid #fff; /* Línea sutil debajo para separación */
+  padding-bottom: 10px;  /* Padding inferior para dar espacio */
+}
+
+
+
+/* Footer calipso */
+.footer-calipso {
+  background-color: #00b8d9;
+  min-height: 60px;
+}
+.footer-calipso h6,
+.footer-calipso p {
+  font-size: 1.2rem;  /* Aumenta el tamaño de la fuente en el footer */
+}
+/* Hero (landing) */
+.hero-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center; /* Centra verticalmente */
+}
+.hero-title {
+  font-size: 4.0rem;
+  font-weight: 800;
+}
+.hero-subtitle {
+  font-size: 2.0rem;
+  margin-bottom: 30px;
+}
+/* Animación para el video: se muestra completamente durante el 30% del ciclo, se desvanece entre 30%-50% y se vuelve a mostrar entre 70%-100% */
+.hero-video {
+  animation: fadeVideo 8s infinite;
+}
+.hero-video-container {
+  width: 400px; /* o el valor que se quiera */
+  position: relative;
+  border: 2px solid #000; /* Borde negro de 2px */
+}
+
+/* Animación para la imagen: permanece oculta hasta el 30%, aparece del 30% al 50%, se mantiene visible del 50% al 70%, y luego se desvanece */
+.marca-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prueba cover para ver si se ajusta mejor */
+  animation: fadeImage 8s infinite;
+}
+
+
+@keyframes fadeVideo {
+  0% { opacity: 1; }
+  30% { opacity: 1; }
+  50% { opacity: 0; }
+  70% { opacity: 0; }
+  90% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeImage {
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  50% { opacity: 1; }
+  70% { opacity: 1; }
+  90% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+ 
+
+
+
+
+
+/* Sección packs */
+.packs-section {
+  margin-bottom: 40px;
+}
+
+.packs-section .col-md-3 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+.packs-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #f8f9fa;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+}
+.card .card-body {
+  color: #000;
+}
+.card-img-top {
+  border-radius: 8px 8px 0 0;
+}
+.cart-item {
+  position: relative;
+  z-index: 1;
+}
