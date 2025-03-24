@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../constants'; // Importa la URL base definida en constants.js
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -14,19 +15,15 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Petición al backend
-      const response = await axios.post('http://localhost:3001/api/auth/login', {
+      // Usamos API_BASE_URL para construir la URL de la API
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, {
         email,
         password
       });
-
-      // Guardar token en AuthContext (NO se muestra en pantalla)
+      
+      // Guardar el token usando AuthContext (sin mostrarlo en pantalla)
       login(response.data.token);
-
-      // Mensaje de éxito
       setMessage('Inicio de sesión exitoso.');
-
-      // Redirigir a /profile
       navigate('/profile');
     } catch (error) {
       setMessage(

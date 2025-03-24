@@ -1,21 +1,20 @@
 // src/views/Register.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../constants'; // Importa la URL base definida en constants.js
 
 function Register() {
-  // Estados para cada campo del formulario y para el mensaje de respuesta
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  // Función que se ejecuta al enviar el formulario
   const handleSubmit = async (e) => {
     e.preventDefault(); // Previene la recarga de la página
     try {
-      // Envía la petición POST a la ruta de registro del backend
-      const response = await axios.post('http://localhost:3001/api/auth/register', {
+      // Usamos API_BASE_URL para construir la URL de la petición
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, {
         nombre,
         apellido,
         email,

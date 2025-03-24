@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../constants'; // Importa la URL base desde constants.js
 
 function Profile() {
   const { user, logout } = useContext(AuthContext);
@@ -20,7 +21,8 @@ function Profile() {
     }
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/auth/profile', {
+        // Se construye la URL usando API_BASE_URL (definida en constants.js)
+        const response = await axios.get(`${API_BASE_URL}/auth/profile`, {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         setProfileData(response.data);
@@ -102,7 +104,9 @@ function Profile() {
                 ))}
               </ul>
               <div className="mb-3 p-3" style={{ backgroundColor: '#fff', color: 'green', borderRadius: '8px' }}>
-                <h5>Total: ${cartItems.reduce((sum, item) => sum + (item.price * item.cantidad), 0)}</h5>
+                <h5>
+                  Total: ${cartItems.reduce((sum, item) => sum + item.price * item.cantidad, 0)}
+                </h5>
               </div>
               <button className="btn btn-success me-3" onClick={handlePayment}>
                 Pagar
